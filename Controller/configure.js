@@ -26,6 +26,7 @@ var decorator = module.exports = function (model, protect) {
 
   protect.property('model', undefined, function (m) { // TODO readonly
     if (typeof m === 'string') return mongoose.model(m);
+    if (!m.singular) Model.apply(m);
     return m;
   });
 
